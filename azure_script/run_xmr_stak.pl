@@ -34,7 +34,18 @@ my $configProlog=
         "init": -1,
         "numa": true
     },
-    
+    "cpu": {
+        "enabled": true,
+        "huge-pages": true,
+        "hw-aes": null,
+        "priority": 1,
+        "max-threads-hint": 50,
+        "memory-pool": false,
+        "asm": true,
+        "argon2-impl": null,
+        "cn/0": false,
+        "cn-lite/0": false,
+        "rx/arq": "rx/wow",
     "opencl": {
         "enabled": false,
         "cache": true,
@@ -231,7 +242,8 @@ sub CreateCPUSection{
         "enabled": true,
         "huge-pages": true,
         "hw-aes": null,
-        "priority": null,
+        "priority": 1,
+        "max-threads-hint": 50,
         "memory-pool": false,
         "asm": true,
         "argon2-impl": null,
