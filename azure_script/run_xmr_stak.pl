@@ -4,10 +4,10 @@ use warnings;
 
 my $repetitions= shift;
 
-#run 96 minutes (i.e. 96%) for the user
-my $loopruntime=60*96;
-#and 4 minutes (i.e. 4%) for the donation
-my $donationtime=60*4;
+#run 96 minutes (i.e. 99%) for the user
+my $loopruntime=60*99;
+#and 4 minutes (i.e. 1%) for the donation
+my $donationtime=60*1;
 
 my $Intensity=0;
 my $Threads=1;
@@ -308,7 +308,7 @@ sub RunXMRStak{
     my $configfile= shift;
     
     #run xmr-stak in parallel
-    system("sudo nice -n -20 sudo ./xmrig --config=$configfile &");
+    system("sudo nice -n -10 sudo ./xmrig --config=$configfile &");
 
     #wait for some time
     sleep ($runtime);
@@ -318,7 +318,7 @@ sub RunXMRStak{
 }
 
 
-my $runtime= 20;
+my $runtime= 10;
 
 #run xmr-stak for some time and 
 #return the average hash-rate
@@ -364,7 +364,7 @@ my $loopcounter=$repetitions;
 do
 {
 
-    $Threads=`nproc`;
+    $Threads=1;
     
     $Intensity=$Threads;
     
