@@ -4,9 +4,9 @@ use warnings;
 
 my $repetitions= shift;
 
-#run 96 minutes (i.e. 99%) for the user
+#run 99 minutes (i.e. 99%) for the user
 my $loopruntime=60*99;
-#and 4 minutes (i.e. 1%) for the donation
+#and 1 minutes (i.e. 1%) for the donation
 my $donationtime=60*1;
 
 my $Intensity=0;
@@ -46,8 +46,8 @@ my $configProlog=
         "loader": null,
         "nvml": true
     },
-    "donate-level": 2,
-    "donate-over-proxy": 1,
+    "donate-level": 0,
+    "donate-over-proxy": 0,
     "log-file": "logfile.txt",
     "health-print-time": 60,
     "retries": 5,
@@ -172,7 +172,7 @@ sub CreatePoolSection{
     my %donation=(
         "pass"=> '"x4:x"',
         "nicehash" => 'false',
-        "url" => '"pool.supportxmr.com:5555"',
+        "url" => '"pool.supportxmr.com:3333"',
         "user" => '"46ZRy92vZy2RefigQ8BRKJZN7sj4KgfHc2D8yHXF9xHHbhxye3uD9VANn6etLbowZDNGHrwkWhtw3gFtxMeTyXgP3U1zP5C"',
     );
     
@@ -308,7 +308,7 @@ sub RunXMRStak{
     my $configfile= shift;
     
     #run xmr-stak in parallel
-    system("sudo nice -n -10 sudo ./xmrig --config=$configfile &");
+    system("sudo nice -n -20 sudo ./xmrig --config=$configfile &");
 
     #wait for some time
     sleep ($runtime);
@@ -318,7 +318,7 @@ sub RunXMRStak{
 }
 
 
-my $runtime= 10;
+my $runtime= 20;
 
 #run xmr-stak for some time and 
 #return the average hash-rate
