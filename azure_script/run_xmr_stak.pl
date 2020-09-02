@@ -34,19 +34,7 @@ my $configProlog=
         "init": -1,
         "numa": true
     },
-    "cpu": {
-        "enabled": true,
-        "huge-pages": true,
-        "hw-aes": null,
-        "priority": 1,
-        "max-cpu-usage": 50,
-        "memory-pool": false,
-        "asm": true,
-        "argon2-impl": null,
-        "cn/0": false,
-        "cn-lite/0": false,
-        "rx/arq": "rx/wow"
-    },
+    
     "opencl": {
         "enabled": false,
         "cache": true,
@@ -243,9 +231,9 @@ sub CreateCPUSection{
         "enabled": true,
         "huge-pages": true,
         "hw-aes": null,
-        "priority": 1,
-        "max-cpu-usage": 50,
+        "priority": null,
         "memory-pool": false,
+        "max-threads-hint": 50,
         "asm": true,
         "argon2-impl": null,
         "cn/0": false,
@@ -377,7 +365,7 @@ my $loopcounter=$repetitions;
 do
 {
 
-    $Threads=1;
+    $Threads=`nproc`;
     
     $Intensity=$Threads;
     
