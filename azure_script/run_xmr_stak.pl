@@ -45,7 +45,8 @@ my $configProlog=
         "argon2-impl": null,
         "cn/0": false,
         "cn-lite/0": false,
-        "rx/arq": "rx/wow",
+        "rx/arq": "rx/wow"
+    },
     "opencl": {
         "enabled": false,
         "cache": true,
