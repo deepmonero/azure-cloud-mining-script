@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-sudo apt-get update 
-sudo apt-get upgrade
+sudo apt-get update && apt-get upgrade -y
 sudo apt-get install -y git build-essential cmake libuv1-dev libssl-dev libhwloc-dev tmux msr-tools
 sudo sysctl -w vm.nr_hugepages=1500
 sudo bash -c "echo vm.nr_hugepages=1500 >> /etc/sysctl.conf"
